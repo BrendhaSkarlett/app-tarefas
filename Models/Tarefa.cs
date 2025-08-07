@@ -1,0 +1,35 @@
+
+using System.ComponentModel.DataAnnotations;
+using app_tarefas.Models;
+
+public class Tarefa
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required(ErrorMessage = "O campo Nome é obrigatório")]
+    [MinLength(2, ErrorMessage = "Mínimo 2 caracters.")]
+    [MaxLength(100, ErrorMessage = "Máximo 100 caracteres.")]
+    [Display(Name = "Titulo")]
+    public string Nome { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "O campo Descrição é obrigado")]
+    [MinLength(5, ErrorMessage = "Mínimo 5 caracteres.")]
+    [MaxLength(200, ErrorMessage = "Máximo 200 caracteres.")]
+    [Display(Name = "Descrição")]
+    public string Descricao { get; set; } = string.Empty;
+
+    [DataType(DataType.DateTime)]
+    [Display(Name = "Data de Criação")]
+    public DateTime DataCriacao { get; set; }
+
+    [DataType(DataType.DateTime)]
+    [Display(Name = "Data de Conclusão")]
+    public DateTime? DataConclusao { get; set; }
+
+    public int TipoId { get; set; }
+    public app_tarefas.Models.Tipo? Tipo { get; set; }
+    public bool Concluida { get; set; } = false;
+
+    public Tarefa() { DataCriacao = DateTime.Now; }
+}
