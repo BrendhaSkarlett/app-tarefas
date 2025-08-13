@@ -1,4 +1,3 @@
-
 using System.ComponentModel.DataAnnotations;
 using app_tarefas.Models;
 
@@ -28,8 +27,11 @@ public class Tarefa
     public DateTime? DataConclusao { get; set; }
 
     public int TipoId { get; set; }
-    public app_tarefas.Models.Tipo? Tipo { get; set; }
+    public Tipo? Tipo { get; set; }
     public bool Concluida { get; set; } = false;
 
-    public Tarefa() { DataCriacao = DateTime.Now; }
+    public Tarefa()
+    {
+        DataCriacao = DateTime.Now;
+    }
 }
