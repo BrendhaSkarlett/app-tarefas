@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+
 namespace app_tarefas.Models;
 
 public class Tipo
@@ -17,5 +18,4 @@ public class Tipo
     public string Descricao { get; set; } = null!;
 
     public ICollection<Tarefa> Tarefas { get; set; } = new List<Tarefa>();
-
 }
